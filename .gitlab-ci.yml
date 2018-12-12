@@ -1,0 +1,5 @@
+image: cirrusci/flutter
+test:
+  script:
+    - flutter doctor
+    - cd testapp && flutter drive --target=lib/drive.dart
