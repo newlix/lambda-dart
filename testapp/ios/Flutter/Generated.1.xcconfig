@@ -1,0 +1,9 @@
+// This is a generated file; do not edit or check into version control.
+FLUTTER_ROOT=/Users/newlix/flutter
+FLUTTER_APPLICATION_PATH=/Users/newlix/sync/github/lambda-dart/testapp
+FLUTTER_TARGET=/Users/newlix/sync/github/lambda-dart/testapp/lib/drive.dart
+FLUTTER_BUILD_DIR=build
+SYMROOT=${SOURCE_ROOT}/../build/ios
+FLUTTER_FRAMEWORK_DIR=/Users/newlix/flutter/bin/cache/artifacts/engine/ios
+FLUTTER_BUILD_NAME=1.0.0
+FLUTTER_BUILD_NUMBER=1
