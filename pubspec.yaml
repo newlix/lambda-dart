@@ -3,6 +3,9 @@ description: Flutter plugin for AWS lambda.
 version: 0.0.1
 author: newlix <newlix134@gmail.com>
 homepage: https://github.com/newlix/lambda-dart
+environment:
+  sdk: ^2.1.0-dev.9.4.flutter-f9ebf21297
+  flutter: ^1.0.0
 
 
 flutter:
@@ -16,8 +19,3 @@ dependencies:
     sdk: flutter
   testing:
     git: git://github.com/newlix/testing-dart.git
-
-
-environment:
-  sdk: '>=2.0.0-dev.63.0.flutter-4c9689c1d2 <3.0.0'
-  flutter: ">=0.2.4 <2.0.0"
