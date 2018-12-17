@@ -18,6 +18,7 @@ import com.amazonaws.services.lambda.AWSLambda;
 import com.amazonaws.services.lambda.AWSLambdaClient;
 import com.amazonaws.services.lambda.model.InvokeRequest;
 import com.amazonaws.services.lambda.model.InvokeResult;
+import com.amazonaws.AmazonServiceException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 
@@ -56,8 +57,9 @@ public class LambdaPlugin implements MethodCallHandler {
                     invokeResult = lambda.invoke(invokeRequest);
                     String s = StandardCharsets.UTF_8.decode(invokeResult.getPayload()).toString();
                     result.success(s);
-                }
-                catch (Exception e) {
+                } catch (AmazonServiceException e) {
+                  result.error(e.getErrorCode(), e.getErrorMessage(), null);
+                } catch (Exception e) {
                   result.error(null, e.getMessage(), null);
                 }
 

@@ -42,7 +42,9 @@
           if (error == nil) {
               result(response);
           }else{
-              result([FlutterError errorWithCode:[NSString stringWithFormat:@"%ld", error.code]  message:error.localizedDescription details:error.userInfo]);
+              NSString *code = error.userInfo[@"NSLocalizedFailureReason"];
+              NSString *message = error.userInfo[@"Message"];
+              result([FlutterError errorWithCode:code  message:message details:error.userInfo]);
           }
       }];
   } else {

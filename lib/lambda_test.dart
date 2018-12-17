@@ -23,16 +23,18 @@ testInvokeHello(testing.T t) async {
 }
 
 testInvokeUnknown(testing.T t) async {
-  var out;
   try {
-    print("1");
-    // throw ("hello");
     await lambda.invoke("unknown", null);
-    print("2");
   } on PlatformException catch (e) {
-    print("3");
-    print(e);
-  } finally {
-    print("4");
+    if (e.code != "ResourceNotFoundException") {
+      t.error("error code = ${e.code}, want ResourceNotFoundException");
+    }
+    if (!e.message.startsWith("Function not found:") &&
+        !e.message.endsWith("function:unknown")) {
+      t.error(
+          "error message = ${e.message}, want Function not found:.*function:unknown");
+    }
+  } catch (e) {
+    t.error("unexpexted error = $e");
   }
 }
