@@ -8,7 +8,8 @@ import 'lambda_test.dart' as _lambda;
 
 Future<int> run() async {
   testing.verbose = true;
-  await testing.run('testInovokeHello', _lambda.testInovokeHello);
+  await testing.run('testInvokeHello', _lambda.testInvokeHello);
+  await testing.run('testInvokeUnknown', _lambda.testInvokeUnknown);
 
   return testing.errorCount;
 }

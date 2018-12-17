@@ -1,6 +1,7 @@
 import 'package:testing/testing.dart' as testing;
 import 'package:lambda/lambda.dart' as lambda;
 import 'dart:convert' show Base64Encoder, Base64Decoder, Utf8Decoder;
+import 'package:flutter/services.dart';
 
 const encoder = const Base64Encoder();
 const decoder = const Base64Decoder();
@@ -13,10 +14,25 @@ final String s =
     decode("akJtK2ZqWmZQTmdLOGY3MUxYY2Y2VHBYVmtRcW96QXVFUVdVYXQ4Mg==");
 final String r = decode("YXAtbm9ydGhlYXN0LTE=");
 
-testInovokeHello(testing.T t) async {
+testInvokeHello(testing.T t) async {
   await lambda.configure(a, s, r);
   final out = await lambda.invoke("hello", {"name": "tester"});
   if (out != "Hello tester") {
     t.error("out = $out, want Hello tester");
+  }
+}
+
+testInvokeUnknown(testing.T t) async {
+  var out;
+  try {
+    print("1");
+    // throw ("hello");
+    await lambda.invoke("unknown", null);
+    print("2");
+  } on PlatformException catch (e) {
+    print("3");
+    print(e);
+  } finally {
+    print("4");
   }
 }

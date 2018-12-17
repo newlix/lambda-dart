@@ -42,7 +42,7 @@
           if (error == nil) {
               result(response);
           }else{
-              result(error);
+              result([FlutterError errorWithCode:[NSString stringWithFormat:@"%ld", error.code]  message:error.localizedDescription details:error.userInfo]);
           }
       }];
   } else {
