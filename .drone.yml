@@ -1,0 +1,15 @@
+kind: pipeline
+name: default
+steps:
+- name: test
+  image: mattclark/flutter-build-docker
+
+  commands:
+  # - /opt/android-sdk-linux/tools/bin/avdmanager create avd -k 'system-images;android-18;google_apis;x86' --abi google_apis/x86 -n 'test' -d 'Nexus 4'
+  # - /opt/android-sdk-linux/tools/emulator -avd test -no-skin -no-audio -no-window
+  # - flutter emulators --launch Nexus_6P
+  - flutter doctor
+  - flutter packages get
+  - cd testapp
+  - flutter packages get
+  - flutter run lib/drive.dart
