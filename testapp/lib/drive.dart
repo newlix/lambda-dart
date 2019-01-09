@@ -4,7 +4,7 @@ import 'package:testing/testing.dart' as testing;
 
 void main() async {
   enableFlutterDriverExtension(handler: (s) async {
-    await tests.run();
-    return testing.errorCount == 0 ? "pass" : null;
+    final pass = await tests.pass(verbose: true);
+    return "$pass";
   });
 }

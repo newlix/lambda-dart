@@ -18,4 +18,4 @@ dependencies:
   flutter:
     sdk: flutter
   testing:
-    git: git://github.com/newlix/testing-dart.git
+    git: https://github.com/newlix/testingdart.git

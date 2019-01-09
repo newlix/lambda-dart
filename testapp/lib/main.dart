@@ -6,5 +6,5 @@
 import 'package:lambda/tests.dart' as tests;
 
 void main() async {
-  await tests.run();
+  await tests.pass(verbose: true);
 }

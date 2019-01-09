@@ -1,9 +1,0 @@
-version: 2
-jobs:
-  build:
-    docker:
-      - image: cirrusci/flutter
-    steps:
-      - checkout
-      - run: flutter doctor
-      - run: cd testapp && flutter drive --target=lib/drive.dart
