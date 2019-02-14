@@ -17,5 +17,6 @@ dependencies:
   meta: ^1.1.0
   flutter:
     sdk: flutter
+  protobuf: any
   testing:
     git: https://github.com/newlix/testingdart.git
